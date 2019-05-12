@@ -14,3 +14,15 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+  $router->get('authors',  ['uses' => 'AuthorController@showMovies']);
+
+  $router->get('authors/{id}', ['uses' => 'AuthorController@showOneMovie']);
+
+  // $router->post('authors', ['uses' => 'AuthorController@create']);
+  //
+  // $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
+
+  // $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
+});
