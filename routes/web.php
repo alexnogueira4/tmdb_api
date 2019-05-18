@@ -18,4 +18,5 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
   $router->get('movies',  ['uses' => 'MovieController@showMovies']);
   $router->get('movies/{id}', ['uses' => 'MovieController@showOneMovie']);
+  $router->get('search',  ['uses' => 'MovieController@searchMovies']);
 });
